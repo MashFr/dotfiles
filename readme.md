@@ -1,5 +1,9 @@
 # Dotfiles — Mathieu
 
+## What is this project?
+
+This repository contains my "dotfiles"—the hidden configuration files (often starting with a dot, like `.zshrc`) that dictate how my system and development tools behave. By keeping these files in a Git repository, I can easily version control my settings, share them, and quickly restore my entire web and mobile development environment on a new macOS (Apple Silicon) machine without having to manually configure everything from scratch.
+
 Complete config for my web/mobile dev environment on macOS (Apple Silicon).
 
 ## Repo contents
