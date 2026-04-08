@@ -45,7 +45,7 @@ brew bundle install --file=~/dotfiles/Brewfile
 
 # 5. Create symlinks
 ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/Brewfile ~/Brewfile
+ln -s ~/dotfiles/.Brewfile ~/.Brewfile
 ln -s ~/dotfiles/config.ghostty '/Users/mathieu/Library/Application Support/com.mitchellh.ghostty/config.ghostty'
 
 # 6. Reload the shell
@@ -154,15 +154,15 @@ source ~/.zshrc
 <summary><b>🍺 Homebrew</b></summary>
 
 ```bash
-brew install <package>          # install a CLI tool
-brew install --cask <app>       # install a GUI app
-brew uninstall <package>        # uninstall
-brew upgrade --greedy           # update everything (CLI + GUI)
-brew search <name>              # search for a package
-brew list                       # see everything installed
-brew bundle dump --force        # update the Brewfile
-brew bundle install             # restore from the Brewfile
-brew bundle check               # check for differences
+brew install <package>            # install a CLI tool
+brew install --cask <app>         # install a GUI app
+brew uninstall <package>          # uninstall
+brew upgrade --greedy             # update everything (CLI + GUI)
+brew search <name>                # search for a package
+brew list                         # see everything installed
+brew bundle dump --global --force # update the .Brewfile
+brew bundle install               # restore from the Brewfile
+brew bundle check                 # check for differences
 ```
 </details>
 
