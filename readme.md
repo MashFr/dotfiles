@@ -85,6 +85,7 @@ source ~/.zshrc
 | :--- | :--- |
 | **fnm** | Node version manager (Rust) |
 | **pnpm** | Fast, disk space efficient package manager |
+| **just** | Command runner (Make alternative) |
 
 </details>
 
