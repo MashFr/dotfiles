@@ -48,11 +48,22 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.Brewfile ~/.Brewfile
 ln -s ~/dotfiles/config.ghostty '/Users/mathieu/Library/Application Support/com.mitchellh.ghostty/config.ghostty'
 
-# 6. Reload the shell
+# 6. Install pi-coding-agent
+npm install -g @mariozechner/pi-coding-agent
+
+# 7. Reload the shell
 source ~/.zshrc
 ```
 
 > **Note:** Symlinks ensure that the repository and the disk files are always automatically up to date — no need to copy files manually.
+
+> **🤖 Code Agent Setup:** I use `pi-coding-agent` as my main coding agent. First, duplicate the `.secrets-sample` file to `.secrets`. This file simply configures the environment variables needed by Pi, so adapt it according to your provider. Next, modify `~/.pi/agent/auth.json` so Pi can use it. For example, with OpenRouter:
+> 
+> ```json
+> {
+>   "openrouter": { "type": "api_key", "key": "OPENROUTER_API_KEY" }
+> }
+> ```
 
 ### 📥 Manual Installations (Outside Homebrew)
 
@@ -130,6 +141,7 @@ source ~/.zshrc
 | **Responsively** | Multi-screen testing |
 | **opencode** | Command-line AI |
 | **Claude Code** | Anthropic code agent |
+| **pi-coding-agent** | Main AI code agent |
 
 </details>
 

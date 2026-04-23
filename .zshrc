@@ -24,6 +24,9 @@ eval "$(uvx --generate-shell-completion zsh)"
 # Added by Antigravity
 export PATH="/Users/mathieu/.antigravity/antigravity/bin:$PATH"
 
+# Pi-coding-agent
+[ -f ~/dotfiles/.secrets ] && source ~/dotfiles/.secrets
+
 # Starship alway in the end
 eval "$(starship init zsh)"
 
