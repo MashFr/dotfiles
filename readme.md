@@ -23,7 +23,7 @@
 | **`.zshrc`** | `~/.zshrc` | Zsh configuration & aliases |
 | **`Brewfile`** | `~/Brewfile` | Homebrew dependencies list |
 | **`config.ghostty`** | `~/Library/.../config.ghostty` | Ghostty terminal settings |
-| **`README.md`** | `-` | This file |
+| **`readme.md`** | `-` | This file |
 
 ---
 

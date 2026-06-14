@@ -58,5 +58,4 @@ cask "tableplus"
 cask "visual-studio-code"
 # Multiplayer code editor
 cask "zed"
-uv "mlx-lm"
 npm "corepack"
