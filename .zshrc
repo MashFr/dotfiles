@@ -15,19 +15,21 @@ export EZA_ICONS_AUTO=1
 # fnm : node manager version
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 
+# pnpm
+export PNPM_HOME="/Users/mathieu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+
 # uv : python manager version
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
 # === SOFT ===
 
-# Added by Antigravity
-export PATH="/Users/mathieu/.antigravity/antigravity/bin:$PATH"
-
 # Pi-coding-agent
 [ -f ~/dotfiles/.secrets ] && source ~/dotfiles/.secrets
 
 # Starship alway in the end
 eval "$(starship init zsh)"
-
-

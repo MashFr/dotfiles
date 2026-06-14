@@ -45,7 +45,7 @@ brew bundle install --file=~/dotfiles/Brewfile
 
 # 5. Create symlinks
 ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.Brewfile ~/.Brewfile
+ln -s ~/dotfiles/Brewfile ~.Brewfile
 ln -s ~/dotfiles/config.ghostty '/Users/mathieu/Library/Application Support/com.mitchellh.ghostty/config.ghostty'
 
 # 6. Install pi-coding-agent
@@ -57,6 +57,12 @@ source ~/.zshrc
 
 > **Note:** Symlinks ensure that the repository and the disk files are always automatically up to date — no need to copy files manually.
 
+
+### 📥 Manual Installations (Outside Homebrew)
+
+* [**Ghostty**](https://ghostty.org) - Fast, native GPU terminal for macOS (Zig + Swift)
+* [**Pi**](https://pi.dev) - Pi is a minimal agent harness.
+
 > **🤖 Code Agent Setup:** I use `pi-coding-agent` as my main coding agent. First, duplicate the `.secrets-sample` file to `.secrets`. This file simply configures the environment variables needed by Pi, so adapt it according to your provider. Next, modify `~/.pi/agent/auth.json` so Pi can use it. For example, with OpenRouter:
 > 
 > ```json
@@ -64,10 +70,6 @@ source ~/.zshrc
 >   "openrouter": { "type": "api_key", "key": "OPENROUTER_API_KEY" }
 > }
 > ```
-
-### 📥 Manual Installations (Outside Homebrew)
-
-* [**Ghostty**](https://ghostty.org) - Fast, native GPU terminal for macOS (Zig + Swift)
 
 ---
 
@@ -96,6 +98,7 @@ source ~/.zshrc
 | :--- | :--- |
 | **fnm** | Node version manager (Rust) |
 | **pnpm** | Fast, disk space efficient package manager |
+| **corepack** | Package manager manager for Node.js |
 | **just** | Command runner (Make alternative) |
 
 </details>
@@ -125,8 +128,18 @@ source ~/.zshrc
 
 | Tool | Role |
 | :--- | :--- |
-| **Antigravity** | VS Code fork by Google + AI |
 | **Zed** | Ultra-fast Rust editor |
+| **Visual Studio Code** | General-purpose editor |
+
+</details>
+
+<details>
+<summary><b>🤖 AI Tools</b></summary>
+
+| Tool | Role |
+| :--- | :--- |
+| **ChatGPT** | OpenAI's desktop app |
+| **Codex** | OpenAI's coding agent |
 
 </details>
 
@@ -139,8 +152,6 @@ source ~/.zshrc
 | **TablePlus** | Database GUI |
 | **DBeaver Community** | Universal database tool / GUI |
 | **Responsively** | Multi-screen testing |
-| **opencode** | Command-line AI |
-| **Claude Code** | Anthropic code agent |
 | **pi-coding-agent** | Main AI code agent |
 
 </details>
@@ -156,6 +167,7 @@ source ~/.zshrc
 | **Superwhisper** | Offline voice dictation (privacy-first) |
 | **Bitwarden** | Open-source password manager |
 | **AppCleaner** | Clean uninstallation of apps |
+| **Notion** | All-in-one workspace |
 
 </details>
 
@@ -176,6 +188,7 @@ brew list                         # see everything installed
 brew bundle dump --global --force # update the .Brewfile
 brew bundle install               # restore from the Brewfile
 brew bundle check                 # check for differences
+brew bundle dump --file=~/dotfiles/Brewfile --force # update the dotfiles Brewfile
 ```
 </details>
 
