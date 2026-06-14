@@ -46,8 +46,8 @@ brew bundle install --file=~/dotfiles/Brewfile
 
 # 5. Create symlinks
 ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/Brewfile ~.Brewfile
-ln -s ~/dotfiles/config.ghostty '/Users/mathieu/Library/Application Support/com.mitchellh.ghostty/config.ghostty'
+ln -s ~/dotfiles/Brewfile ~/Brewfile
+ln -s ~/dotfiles/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 
 # 6. Install pi-coding-agent
 npm install -g @mariozechner/pi-coding-agent
@@ -142,7 +142,8 @@ source ~/.zshrc
 | Tool | Role |
 | :--- | :--- |
 | **ChatGPT** | OpenAI's desktop app |
-| **Codex** | OpenAI's coding agent |
+| **Codex** | OpenAI's coding agent desktop app |
+| **oMLX** | Local open AI server |
 
 </details>
 
@@ -155,6 +156,7 @@ source ~/.zshrc
 | **TablePlus** | Database GUI |
 | **DBeaver Community** | Universal database tool / GUI |
 | **Responsively** | Multi-screen testing |
+| **Google Chrome Dev** | Dev browser build |
 | **pi-coding-agent** | Main AI code agent |
 
 </details>
@@ -188,9 +190,9 @@ brew uninstall <package>          # uninstall
 brew upgrade --greedy             # update everything (CLI + GUI)
 brew search <name>                # search for a package
 brew list                         # see everything installed
-brew bundle dump --global --force # update the .Brewfile
-brew bundle install               # restore from the Brewfile
-brew bundle check                 # check for differences
+brew bundle dump --global --force           # update the global Brewfile
+brew bundle install --file=~/dotfiles/Brewfile # restore from the dotfiles Brewfile
+brew bundle check --file=~/dotfiles/Brewfile   # check for differences
 brew bundle dump --file=~/dotfiles/Brewfile --force # update the dotfiles Brewfile
 ```
 </details>
@@ -205,6 +207,12 @@ fnm install 22                  # install a specific version
 fnm use 22                      # switch version
 fnm list                        # installed versions
 fnm default 22                  # set default version
+```
+
+**corepack**
+```bash
+corepack enable                 # enable package manager shims
+corepack prepare pnpm@latest --activate # activate latest pnpm
 ```
 
 **pnpm**
@@ -231,6 +239,7 @@ uv add --dev <package>          # add as a dev dependency
 uv remove <package>             # remove a dependency
 uv run script.py                # run a script (auto venv)
 uv sync                         # sync venv with uv.lock
+uv tool install <packagename>   # install packagename as a tool
 uvx <tool>                      # run a tool without installing it
 uvx ruff check .                # lint
 uvx ruff format .               # format
