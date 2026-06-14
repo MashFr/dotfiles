@@ -11,6 +11,7 @@
 
 *This repository contains my "dotfiles"—the hidden configuration files that dictate how my system and development tools behave. By keeping these files in a Git repository, I can easily version control my settings, share them, and quickly restore my entire environment on a new machine.*
 
+
 </div>
 
 ---
@@ -55,7 +56,7 @@ npm install -g @mariozechner/pi-coding-agent
 source ~/.zshrc
 ```
 
-> **Note:** Symlinks ensure that the repository and the disk files are always automatically up to date — no need to copy files manually.
+> **Note:** Symlinks ensure that the repository and the disk files are always automatically up to date — no need to copy files manually. 
 
 
 ### 📥 Manual Installations (Outside Homebrew)
@@ -70,6 +71,8 @@ source ~/.zshrc
 >   "openrouter": { "type": "api_key", "key": "OPENROUTER_API_KEY" }
 > }
 > ```
+
+* [**oMLX**](https://omlx.ai) -  Local AI server macOS-native MLX server with smart caching.
 
 ---
 
