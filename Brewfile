@@ -36,8 +36,6 @@ cask "bitwarden"
 cask "bruno"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
-# OpenAI's Codex desktop app for managing coding agents
-cask "codex-app"
 # Universal database tool and SQL client
 cask "dbeaver-community"
 # Web browser
