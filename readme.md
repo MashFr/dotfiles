@@ -141,8 +141,7 @@ source ~/.zshrc
 
 | Tool | Role |
 | :--- | :--- |
-| **ChatGPT** | OpenAI's desktop app |
-| **Codex** | OpenAI's coding agent desktop app |
+| **ChatGPT** | OpenAI's desktop app + codex |
 | **oMLX** | Local open AI server |
 
 </details>
@@ -239,7 +238,7 @@ uv add --dev <package>          # add as a dev dependency
 uv remove <package>             # remove a dependency
 uv run script.py                # run a script (auto venv)
 uv sync                         # sync venv with uv.lock
-uv tool install <packagename>   # install packagename as a tool
+uv tool install <tool>          # install a Python CLI tool globally
 uvx <tool>                      # run a tool without installing it
 uvx ruff check .                # lint
 uvx ruff format .               # format
