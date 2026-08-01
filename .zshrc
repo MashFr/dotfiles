@@ -3,7 +3,6 @@
 autoload -Uz compinit && compinit
 # plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
@@ -33,3 +32,7 @@ eval "$(uvx --generate-shell-completion zsh)"
 
 # Starship alway in the end
 eval "$(starship init zsh)"
+
+# === ZSH ===
+# zsh-syntax-highlighting should be loaded last
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
