@@ -15,7 +15,7 @@ export EZA_ICONS_AUTO=1
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 
 # pnpm
-export PNPM_HOME="/Users/mathieu/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
@@ -25,10 +25,11 @@ esac
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
-# === SOFT ===
-
-# Pi-coding-agent
-[ -f ~/dotfiles/.secrets ] && source ~/dotfiles/.secrets
+# oMLX CLI
+case ":$PATH:" in
+  *":$HOME/.omlx/bin:"*) ;;
+  *) export PATH="$HOME/.omlx/bin:$PATH" ;;
+esac
 
 # Starship alway in the end
 eval "$(starship init zsh)"

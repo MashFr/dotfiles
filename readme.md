@@ -20,37 +20,42 @@
 
 | File | Destination | Description |
 | :--- | :--- | :--- |
-| **`.zshrc`** | `~/.zshrc` | Zsh configuration & aliases |
+| **`.zshrc`** | `~/.zshrc` | Zsh configuration and tool initialization |
 | **`Brewfile`** | `~/Brewfile` | Homebrew dependencies list |
-| **`config.ghostty`** | `~/Library/.../config.ghostty` | Ghostty terminal settings |
+| **`config.ghostty`** | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` | Ghostty terminal settings |
 | **`readme.md`** | `-` | This file |
 
 ---
 
 ## 🚀 Quick Setup (New Machine)
 
-To install everything on a fresh macOS installation, execute the following commands in your terminal:
+Run these steps in Zsh on a fresh macOS installation. Wait for the Xcode Command Line Tools installer to finish before installing Homebrew. Follow Homebrew's instructions for adding `brew shellenv` to `~/.zprofile` so it runs in future terminal sessions. Back up any existing configuration files before creating the symlinks.
 
-```bash
+```zsh
 # 1. Xcode CLI tools
 xcode-select --install
 
 # 2. Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # 3. Clone the repo
-git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
+git clone https://github.com/MashFr/dotfiles.git ~/dotfiles
 
-# 4. Install everything from the Brewfile
-brew bundle install --file=~/dotfiles/Brewfile
+# 4. Set up Node.js so Brew Bundle can install Corepack
+brew install fnm
+eval "$(fnm env --shell zsh)"
+fnm install --lts --use
+fnm default "$(node --version)"
 
-# 5. Create symlinks
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/Brewfile ~/Brewfile
-ln -s ~/dotfiles/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
+# 5. Install everything from the Brewfile
+brew bundle install --file="$HOME/dotfiles/Brewfile"
 
-# 6. Install pi-coding-agent
-npm install -g @mariozechner/pi-coding-agent
+# 6. Create symlinks
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
+ln -s "$HOME/dotfiles/Brewfile" "$HOME/Brewfile"
+ln -s "$HOME/dotfiles/config.ghostty" "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 
 # 7. Reload the shell
 source ~/.zshrc
@@ -62,17 +67,7 @@ source ~/.zshrc
 ### 📥 Manual Installations (Outside Homebrew)
 
 * [**Ghostty**](https://ghostty.org) - Fast, native GPU terminal for macOS (Zig + Swift)
-* [**Pi**](https://pi.dev) - Pi is a minimal agent harness.
-
-> **🤖 Code Agent Setup:** I use `pi-coding-agent` as my main coding agent. First, duplicate the `.secrets-sample` file to `.secrets`. This file simply configures the environment variables needed by Pi, so adapt it according to your provider. Next, modify `~/.pi/agent/auth.json` so Pi can use it. For example, with OpenRouter:
-> 
-> ```json
-> {
->   "openrouter": { "type": "api_key", "key": "OPENROUTER_API_KEY" }
-> }
-> ```
-
-* [**oMLX**](https://omlx.ai) -  Local AI server macOS-native MLX server with smart caching.
+* [**oMLX**](https://omlx.ai) - Local AI server for macOS using MLX.
 
 ---
 
@@ -141,8 +136,9 @@ source ~/.zshrc
 
 | Tool | Role |
 | :--- | :--- |
-| **ChatGPT** | OpenAI's desktop app + codex |
-| **oMLX** | Local open AI server |
+| **ChatGPT** | OpenAI's desktop app |
+| **Codex** | OpenAI's coding agent for the terminal |
+| **oMLX** | Local AI server for macOS |
 
 </details>
 
@@ -156,7 +152,7 @@ source ~/.zshrc
 | **DBeaver Community** | Universal database tool / GUI |
 | **Responsively** | Multi-screen testing |
 | **Google Chrome Dev** | Dev browser build |
-| **pi-coding-agent** | Main AI code agent |
+| **OpenStackClient** | Command-line client for OpenStack |
 
 </details>
 
@@ -168,7 +164,7 @@ source ~/.zshrc
 | **Rectangle** | Window management |
 | **AltTab** | ⌥Tab Windows-style |
 | **Maccy** | Clipboard history |
-| **Superwhisper** | Offline voice dictation (privacy-first) |
+| **Hex** | Local voice dictation |
 | **Bitwarden** | Open-source password manager |
 | **AppCleaner** | Clean uninstallation of apps |
 | **Notion** | All-in-one workspace |

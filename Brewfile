@@ -1,3 +1,4 @@
+tap "anomalyco/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Container runtimes on MacOS (and Linux) with minimal setup
@@ -14,6 +15,8 @@ brew "fnm"
 brew "fzf"
 # Handy way to save and run project-specific commands
 brew "just"
+# Command-line client for OpenStack
+brew "openstackclient"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Cross-shell prompt for astronauts
@@ -30,16 +33,20 @@ brew "zsh-syntax-highlighting"
 cask "alt-tab"
 # Application uninstaller
 cask "appcleaner"
-# Desktop password and login vault
+# Open source desktop password manager with encrypted vault and autofilling
 cask "bitwarden"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Universal database tool and SQL client
 cask "dbeaver-community"
 # Web browser
 cask "google-chrome@dev"
+# Local voice dictation
+cask "anomalyco/tap/hex", trusted: true
 # Clipboard manager
 cask "maccy"
 # App to write, plan, collaborate, and get organised
@@ -48,8 +55,6 @@ cask "notion"
 cask "rectangle"
 # Modified browser that helps in responsive web development
 cask "responsively"
-# Dictation tool including LLM reformatting
-cask "superwhisper"
 # Native GUI tool for relational databases
 cask "tableplus"
 # Open-source code editor
